@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <title>Frontend Mentor | Huddle landing page with curved sections</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      /* general setting start ------------------------------------------------- */
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap");
+      
+      :root {
+        /* Primary color */
+        --pink: hsl(322, 100%, 66%);
+        --light-pink: hsl(321, 100%, 78%);
+        --light-red: hsl(0, 100%, 63%);
+
+        /* Neutral color */
+        --very-dark-cyan: hsl(192, 100%, 9%);
+        --very-pale-blue: hsl(207, 100%, 98%);
+
+        /* border radius */
+        --border-radius: 50px;
+
+        /* font weight */
+        --fw-regu: 400;
+        --fw-semibold: 600;
+        --fw-bold: 700;
+
+        /* font family */
+        --open:"Open Sans", sans-serif;
+        --poppin:"Poppins", sans-serif;
+      }
+      
+      html {
+        font-size: 100%;
+        box-sizing: border-box;
+        font-family: var(--poppin);
+      }
+
+      *,
+      *:before, 
+      *::after{
+        padding: 0;
+        margin: 0;
+        box-sizing: inherit;
+      }
+
+      img{
+        width: 100%;
+        vertical-align: middle;
+      }
+
+      a{
+        display: inline-block;
+        text-decoration: none;
+        box-shadow: 0 2px 8px -2px hsl(0 0% 0%/.2)
+      }
+
+      a, 
+      p{
+        font-family: var(--open);
+      }
+
+      section:not(:last-child){
+        padding-bottom: 8rem;
+        /* background-color: red; */
+      }
+
+      .heading{
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-family: var(--poppin);
+      }
+
+      /* general setting end ------------------------------------------------- */
+
+      body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 2rem;
+      }
+
+
+      /* header section start ------------------------------------------------- */
+      .header-container{
+        width: 100%;
+      }
+
+      .header-sec{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: 1rem;
+      }
+
+      .header-sec .logo{
+        width: 100px;
+      }
+
+      .header-sec a{
+        padding: 0.25rem 1.25rem;
+        border: 1px solid var(--pink);
+        border-radius: var(--border-radius);
+        color: var(--pink);
+        font-size: 12px;
+        font-weight: var(--fw-semibold);
+        transition: .3s;
+      }
+
+      .header-sec a:hover{
+        border: 1px solid var(--light-pink);
+        color: var(--light-pink);
+      }
+
+      /* header section end  --------------------------------------------------- */
+
+      /* intro section start ------------------------------------------------- */
+
+      .intro-sec{
+        padding-inline: 3rem;
+        text-align: center;
+        font-size: .8rem;
+      }
+
+      .intro-sec a{
+        padding: .8rem 2.5rem;
+        margin-top: 3rem;
+        background-color: var(--pink);
+        border-radius: var(--border-radius);
+        color: white;
+        font-weight: var(--fw-semibold);
+        transition: .3s;
+      }
+
+      .intro-sec a:hover{
+        background-color: var(--light-pink);
+      }
+
+      /* intro section end  --------------------------------------------------- */
+
+      /* hero section start  --------------------------------------------------- */
+      .hero-sec{
+        padding-inline: 3rem;
+      }
+      /* hero section end  --------------------------------------------------- */
+
+      /* data section start  --------------------------------------------------- */
+      
+
+      .data-container{
+        width: 100%;
+        background: no-repeat url("images/bg-section-top-mobile-1.svg") bottom center/contain;
+      }
+      .data-sec{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        gap: 6rem;
+      }
+      .data{
+        text-align: center;
+      }
+
+      .data .icon{
+        width: 2.25rem;
+      }
+
+      .data h3{
+        font-family: var(--open);
+      }
+
+      .data:nth-child(1) h3{
+        font-size: 70px;
+      }
+      
+      .data:nth-child(2) h3{
+        font-size: 55px;
+      }
+      .data p{
+        color: grey;
+        font-size: 1.2rem;
+      }
+      /* data section end  --------------------------------------------------- */
+
+      /* content section start  --------------------------------------------------- */
+      
+      .content-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: no-repeat url("images/bg-footer-top-mobile.svg") bottom center/contain;
+      }
+
+      .content{
+        display: flex;
+        justify-content: center;
+      }
+
+      .content-container .item{
+        padding: 4rem 2.5rem;
+        color: var(--very-dark-cyan);
+      }
+
+      
+      .grow-tgt{
+        background: var(--very-pale-blue);
+      }
+
+
+      .content-container .illustration{
+        padding: .5rem;
+        margin-bottom: 4rem;
+        width: 100%;
+      }
+
+      .content-container .txt{
+        width: 100%;
+      }
+
+      .content-container h4{
+        font-size: 20px;
+        margin-bottom: 1.5rem;
+      }
+
+      .start{
+        text-align: center;
+      }
+
+      .start h2{
+        margin-bottom: 3rem;
+      }
+
+      .start a{
+        background-color: var(--pink);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: var(--border-radius);
+        font-weight: var(--fw-semibold);
+        transition: .3s;
+      }
+
+      .start a:hover{
+        background-color: var(--light-pink);
+      }
+
+      /* content section end --------------------------------------------------- */
+      
+      /* footer section start --------------------------------------------------- */
+      .footer-container{
+        width: 100%;
+        background-color: var(--very-dark-cyan);
+      }
+      .footer{
+        color: white;
+        padding: 4rem 2rem 2rem;
+      }
+
+
+      .footer .heading{
+        font-family: var(--open);
+        font-weight: var(--fw-semibold);
+        text-transform: uppercase;
+        font-size: 20px;
+      }
+
+      .footer p{
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        opacity: 0.8;
+      }
+
+      .footer form{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .footer input{
+        width: 100%;
+        padding: .7rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .footer input:focus{
+        outline: none;
+      }
+
+      .footer button{
+        border: none;
+        padding: 1rem 3rem;
+        border-radius: 5px;
+        background-color: var(--pink);
+        color: white;
+        font-size: 16px;
+        font-family: var(--open);
+        font-weight: var(--fw-semibold);
+        transition: .3s;
+        cursor: pointer;
+      }
+
+      .footer button:hover{
+        background-color: var(--light-pink);
+      }
+      .footer .contact-group{
+        margin-top: 6rem;
+      }
+      .footer .logo{
+        width: 200px;
+        margin-bottom: 1rem;
+        filter: brightness(0) invert(1);
+      }
+
+      .footer i{
+        margin-right: 1rem;
+      }
+
+      .footer .icon + .icon{
+        margin-top: 1rem;
+      }
+
+      .social-group{
+        margin-top: 3rem;
+        display: flex;
+      }
+
+      .social-group i{
+        font-size: 30px;
+      }
+      /* footer section end --------------------------------------------------- */
+
+      /* RWD section start --------------------------------------------------- */
+
+      @media screen and (max-width: 375px) {
+
+        .content-container .content:nth-child(even){
+          padding-block: 12rem;
+        }
+
+        .content:nth-child(2){
+          background: no-repeat url("images/bg-section-bottom-mobile-1.svg") top center/contain, no-repeat url("images/bg-section-top-mobile-2.svg") bottom center/contain;
+        }
+
+        .yr-users{
+          background: no-repeat url("images/bg-section-top-mobile-2.svg")bottom -10vh center/contain var(--very-pale-blue);
+        }
+
+        .content:nth-child(4){
+          background: no-repeat url("images/bg-section-bottom-mobile-2.svg") top center/contain;
+        }
+      }
+
+
+
+
+      @media screen and (min-width: 376px) {
+        .container{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .section{
+          max-width: 1200px;
+        }
+
+        .header-container{
+          display: flex;
+          justify-content: center;
+        }
+
+        .header-sec .logo{
+          width: 150px;
+        }
+        .intro-sec h2{
+          font-size: 35px;
+        }
+
+        .intro-sec p{
+          width: 45%;
+          margin: auto;
+        }
+
+        .hero-sec{
+          padding-inline: 6.5rem;
+        }
+
+        .data-container{
+          display: flex;
+          justify-content: center;
+          background: no-repeat url("images/bg-section-top-desktop-1.svg") bottom center/contain;
+        }
+
+        .data-sec{
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-between;
+          padding-inline: 10rem;
+        }
+
+        .data-sec .data h3{
+          font-size: 4.5rem;
+        }
+
+        .content-container{
+          background: no-repeat url("images/bg-footer-top-desktop.svg") bottom -.2rem center/contain;
+        }
+
+        .content-container .content{
+          width: 100%;
+        }
+
+        .content-container .content:nth-child(even){
+          padding-block: 10rem;
+        }
+
+        
+        .content-container .content:nth-child(odd){
+          background-color: var(--very-pale-blue);
+        }
+
+        .content-container .content:nth-child(2){
+          background: no-repeat url("images/bg-section-bottom-desktop-2.svg") top center/contain, no-repeat url("images/bg-section-top-desktop-2.svg") bottom center/contain;
+        }
+
+        .content-container .content:nth-child(4){
+          background: no-repeat url("images/bg-section-bottom-desktop-2.svg") top center/contain;
+        }
+
+        .content-container .item{
+          display: flex;
+          align-items: center;
+          text-align: left;
+          padding: 1rem 7rem;
+          max-width: 1200px;
+          gap: 6rem;
+        }
+
+        .content-container .item h4{
+          font-size: 2rem;
+        }
+        .content-container .item p{
+          font-size: .8rem;
+          font-weight: var(--fw-semibold);
+        }
+
+        .content-container .content:nth-child(odd) .illustration{
+          order: 2;
+        }
+
+        .content-container .illustration{
+          margin-bottom: 0;
+        }
+
+        .start{
+          padding-top: 4rem;
+        }
+
+        .footer-container{
+          display: flex;
+          justify-content: center;
+          background-color: var(--very-dark-cyan);
+        }
+
+        /* .footer{
+          display: grid;
+          grid-template-columns: repeat(50%, 25%, 25%);
+          background-color: red;
+        } */
+
+        .footer{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 20rem;
+        }
+
+
+        .footer .contact-group{
+          max-width: 250px;
+          margin-top: 0;
+          order: -1;
+        }
+
+        .footer-container p{
+          font-size: 13px;
+        }
+
+        .footer .newsletter{
+          grid-column: 3/5;
+        }
+
+        .newsletter p{
+          font-size: 13px;
+          width: 75%;
+        }
+
+        .newsletter form{
+          flex-direction: row;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .newsletter input{
+          width: 70%;
+          margin: 0;
+        }
+
+        .newsletter button{
+          font-size: 14px;
+          height: 100%;
+          padding: .7rem 2.2rem;
+        }
+
+        .footer .contact-group{
+          grid-column: 1/2;
+          grid-row: 1/2;
+        }
+
+        .contact-group span{
+          font-family: var(--open);
+          font-size: 14px;
+        }
+        .footer .social-group{
+          margin-block: 3rem;
+        }
+
+        .social-group i{
+          cursor: pointer;
+          transition: .3s;
+        }
+
+        .social-group i:hover{
+          color: hsl(189 61% 52%);
+        }
+
+
+      }
+      /* RWD section end --------------------------------------------------- */
+
+    </style>
+  </head>
+  <body>
+    <h1 class="sr-only">Huddle landing page</h1>
+    <main class="container">
+      <section class="header-container">
+        <div class="section header-sec">
+          <div class="logo">
+            <img src="/images/logo.svg" alt="">
+          </div>
+            <a href="#">Try it free</a>
+        </div>
+      </section>
+
+
+      <section class="intro-container">
+        <div class="section intro-sec">
+          <h2 class="heading">Build The Community Your Fans Will Love</h2>
+          <p>Huddle re-imagines the
+            way we build communities. You have a voice, but so does your audience.
+            Create connections with your users as you engage in genuine discussion.
+          </p>
+          <a href="#" class="btn">Get Started For Free</a>
+        </div>
+      </section>
+
+      <section class="hero-container">
+        <div class="section hero-sec">
+          <img src="/images/screen-mockups.svg" alt="">
+        </div>
+      </section>
+
+      <section class="data-container">
+          <div class="section data-sec">
+            <div class="data">
+              <div class="icon">
+                <img src="/images/icon-communities.svg" alt="">
+              </div>
+              <h3 class="number">1.4k+</h3>
+              <p>Communities Formed</p>
+            </div>
+            <div class="data">
+              <div class="icon">
+                <img src="/images/icon-messages.svg" alt="">
+              </div>
+              <h3 class="number">2.7m+</h3>
+              <p>Messages Sent</p>
+            </div>
+          </div>
+      </section>
+      
+      <section class="content-container">
+          <div class="content"> <!--to make the bgc covers whole width so wrapped one more div-->
+            <div class="item grow-tgt">
+              <div class="illustration">
+                <img src="/images/illustration-grow-together.svg" alt="">
+              </div>
+              <div class="txt">
+                <h4>Grow Together</h4>
+                <p>Generate meaningful discussions with your audience and build a strong, loyal
+              community. Think of the insightful conversations you miss out on with a
+              feedback form.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="item flowing-con">
+              <div class="illustration">
+                <img src="/images/illustration-flowing-conversation.svg" alt="">
+              </div>
+              <div class="txt">
+                <h4>Flowing Conversations</h4>
+                <p>You wouldn't paginate a conversation in
+                real life, so why do it online? Our threads have just-in-time loading for a
+                more natural flow.</p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="content">
+            <div class="item yr-users">
+              <div class="illustration">
+                <img src="/images/illustration-your-users.svg" alt="">
+              </div>
+              <div class="txt">
+                <h4>Your Users</h4>
+                <p>It takes no time at all to integrate Huddle
+                with your app's authentication solution. This means, once signed in to your
+                app, your users can start chatting immediately.</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="content">
+            <div class="start">
+              <h2 class="heading">Ready To Build Your Community?</h2>
+              <a href="#" class="btn">Get Started For Free</a>
+            </div>
+          </div>
+      </section>
+
+      
+
+      
+      <div class="footer-container">
+        <div class="section footer">
+          <div class="item newsletter">
+            <h2 class="heading">Newsletter</h2>
+            <p>To recieve tips on how to grow your community, sign up to our weekly newsletter. We'll never send you spam or pass on your email address</p>
+            <form action="">
+              <input type="text">
+              <button>Subscribe</button>
+            </form>
+          </div>
+
+          <div class="item contact-group">
+            <div class="logo">
+              <img src="/images/logo.svg" alt="">
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Mauris nulla quam, hendrerit lacinia vestibulum a, ultrices
+            quis sem.</p>
+
+            <div class="icon tel">
+              <i class="fas fa-phone"></i>
+              <span>Phone: +1-543-123-4567</span>
+            </div>
+            <div class="icon email">
+              <i class="far fa-envelope"></i>
+              <span>example@huddle.com</span>
+            </div>
+            <div class="social-group">
+              <div class="social-icon"><i class="fab fa-facebook-square"></i></div>
+              <div class="social-icon"><i class="fab fa-instagram"></i></i></div>
+              <div class="social-icon"><i class="fab fa-twitter-square"></i></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
